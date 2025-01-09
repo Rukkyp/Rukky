@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Python Arrays with examples, including List and NumPy Array">
+  <meta name="keyword" content="Array, Python, List, NumPy">
+  <title>Python Arrays Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <style>
+      /* ทำให้วิดีโอปรับขนาดอัตโนมัติ */
+      .video-container {
+          position: relative;
+          padding-bottom: 56.25%; /* อัตราส่วน 16:9 (1080p) */
+          height: 0;
+          overflow: hidden;
+          max-width: 100%;
+      }
+
+      .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+  </style>
+    <div class="top-bar">
+      <nav class="navbar">
+        <a href="#" class="logo">
+          <img src="python1.png" alt="Python Arrays Tutorial Logo">
+        </a>
+        <ul class="left-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#list-section">List</a></li>
+          <li><a href="#numpy-section">NumPy</a></li>
+          <li><a href="#" onclick="window.location.href='https://www.w3schools.com/python/exercise.asp?x=xrcise_arrays1'">Exercise</a></li> 
+          <li><a href="#" onclick="window.location.href='https://www.w3schools.com/python/default.asp'">Learn More</a></li>
+        </ul>
+        <ul class="right-nav">
+          <li><a href="login.html">Login</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+        <div class="navbar-banner"></div>
+      </nav>
+    </div>
+    </header>
+
+    <main class="container">
+      <h1>Python Arrays Tutorial</h1>
+
+    <section class="intro">
+      <h2>Python คืออะไร?</h2>
+      <p>Python เป็นภาษาการเขียนโปรแกรมที่ใช้อย่างแพร่หลายในเว็บแอปพลิเคชัน การพัฒนาซอฟต์แวร์ 
+        วิทยาศาสตร์ข้อมูล และแมชชีนเลิร์นนิง (ML) นักพัฒนาใช้ Python เนื่องจากมีประสิทธิภาพ เรียนรู้ง่าย 
+        และสามารถทำงานบนแพลตฟอร์มต่างๆ ได้มากมาย ทั้งนี้ซอฟต์แวร์ Python สามารถดาวน์โหลดได้ฟรี 
+        ผสานการทำงานร่วมกับระบบทุกประเภท และเพิ่มความเร็วในการพัฒนา</p>
+      </section>
+
+      <section class="intro1">
+        <h2>Python มีข้อดีอะไรบ้าง?</h2>
+        <ul2>
+        ข้อดีต่างๆ ของ Python ได้แก่
+         <li> นักพัฒนาสามารถอ่านและทำความเข้าใจโปรแกรม Python ได้อย่างง่ายดาย เนื่องจากมีไวยากรณ์พื้นฐานเหมือนภาษาอังกฤษ </li>
+         <li> Python ทำให้นักพัฒนาทำงานได้อย่างมีประสิทธิภาพมากขึ้น เนื่องจากพวกเขาสามารถเขียนโปรแกรม Python ได้โดยใช้โค้ดน้อยลงเมื่อเปรียบเทียบกับภาษาอื่นๆ อีกมากมาย </li>
+         <li> Python มีไลบรารีมาตรฐานขนาดใหญ่ที่มีโค้ดที่ใช้ซ้ำได้สำหรับเกือบทุกงาน ด้วยเหตุนี้ นักพัฒนาจึงไม่ต้องเขียนโค้ดขึ้นใหม่ทั้งหมด </li>
+         <li>โดยนักพัฒนาสามารถใช้ Python ร่วมกับภาษาการเขียนโปรแกรมยอดนิยมอื่นๆ เช่น Java, C และ C++ ได้อย่างง่ายดาย </li>
+         <li> Python สามารถใช้งานได้บนระบบปฏิบัติการคอมพิวเตอร์ต่างๆ เช่น Windows, MacOS, Linux และ Unix </li></ul2>
+        </section>
+
+      <section class="intro2">
+        <h2>ทำความรู้จักกับ Array ในภาษา Python</h2>
+        <p>Array ใน Python เป็นโครงสร้างข้อมูลที่ใช้เก็บข้อมูลแบบเป็นลำดับที่มีประสิทธิภาพ 
+          ซึ่งสามารถเก็บข้อมูลที่มีประเภทเดียวกันหลายค่าได้พร้อมกัน 
+          โดยการเข้าถึงข้อมูลภายใน Array จะสามารถทำได้โดยใช้ดัชนี (index) โดยที่การนับดัชนีใน Array 
+          จะเริ่มต้นที่ 0 ซึ่งเป็นคุณสมบัติที่เป็นเอกลักษณ์ของการใช้งาน Array ใน Python</p>
+        </section>
+
+      <section id="list-section">
+      <h2>การใช้งาน Array ในภาษา Python</h2>
+        <p>เนื่องจาก Python ไม่รองรับ built-in สำหรับ Arrays แต่สามารถใช้ Python Lists แทนได้ 
+          โดยที่ list เป็นชนิดข้อมูลที่สามารถเก็บข้อมูลหลายๆ ชนิดไว้ในที่เดียวกัน โดยไม่จำเป็นต้องจำกัดขนาดหรือประเภทข้อมูล
+          การใช้ list เป็น array เพื่อทำงานกับอาร์เรย์ใน Python จะต้องนำเข้าไลบรารีเช่น NumPy library
+        </p>
+        <h3>ตัวอย่าง กำหนดตัวแปรเพื่อเก็บข้อมูลชนิดอาเรย์ด้วยรูปแบบข้อมูลจากชุดข้อมูลชนิด list</h3>
+          <pre><code id="code1">
+cars = ["Ford", "Volvo", "BMW"]
+print(cars)
+          </code></pre>
+          <button class="copy-btn" onclick="copyCode('code1')">Copy Code</button>
+         <h3>ผลลัพธ์</h3> 
+         <pre><code>
+['Ford', 'Volvo', 'BMW']
+            </code></pre>
+        </section>
+
+        <section class="tutorial">
+        <h2>การเข้าถึงข้อมูลแต่ละตัวในอาเรย์(array)</h2>
+        <p>เราสามารถจะเข้าถึงข้อมูลแต่ละตัวในชุดข้อมูลอาเรย์โดยอ้างถึงลำดับของข้อมูล แบบเดียวกันกับชุดข้อมูลชนิดลิสต์ 
+          ซึ่งทำการระบุลำดับของข้อมูลที่ต้องการเข้าถึงไว้ภายในเครื่องหมาย[ ]</p>
+          <h3>ตัวอย่าง กำหนดตัวแปรเพื่อเก็บข้อมูลชนิดอาเรย์ด้วยรูปแบบข้อมูลจากชุดข้อมูลชนิดลิสต์</h3>
+          <pre><code id="code2">
+cars = ["Ford", "Volvo", "BMW"]
+cars[0] = "Toyota"
+print(cars)
+          </code></pre>
+          <button class="copy-btn" onclick="copyCode('code2')">Copy Code</button>
+         <h3>ผลลัพธ์</h3> 
+         <pre><code>         
+['Toyota', 'Volvo', 'BMW']
+          </code></pre>
+          <p><small><ins>คำอธิบาย</ins> <br> ในบรรทัดที่1 cars = ["Ford", "Volvo", "BMW"] จะสร้าง list ที่มีข้อมูล 3 ตัวคือ "Ford", "Volvo", และ "BMW". <br>
+            ในบรรทัดที่2 cars[0] = "Toyota" จะเปลี่ยนค่าในตำแหน่งที่ 0 (ตัวแรก) ของ list จาก "Ford" เป็น "Toyota". <br>
+            เมื่อใช้ print(cars) จะแสดงผลลัพธ์เป็น ['Toyota', 'Volvo', 'BMW'] ซึ่งค่าตัวแรกใน list ถูกเปลี่ยนไปเป็น "Toyota".</small></p>
+        </section>
+         
+        <section class="tutorial">
+            <h2>การตรวจสอบจำนวนข้อมูลในอาเรย์(array)</h2>
+            <p>เราสามารถทำการตรวจสอบจำนวนของข้อมูลที่มีอยู่ภายในชุดข้อมูลอาเรย์ ซึ่งใช้รูปแบบเดียวกับการหาจำนวนข้อมูลที่มีอยู่ในชุดข้อมูลชนิดลิสต์ โดยการใช้งานฟังก์ชัน len()</p>
+            <h3>ตัวอย่าง</h3>
+            <pre><code id="code3">
+cars = ["Ford", "Volvo", "BMW"]
+x = len(cars)
+print(x)
+            </code></pre>
+            <button class="copy-btn" onclick="copyCode('code3')">Copy Code</button>
+           <h3>ผลลัพธ์</h3> 
+           <pre><code>                   
+3
+            </code></pre>
+            <h2>Looping Array Elements</h2>
+            <p>สามารถใช้การ for in loop เพื่อวนองค์ประกอบทั้งหมดของอาร์เรย์</p>
+            <h3>ตัวอย่าง ปริ้นแต่ละรายการในอาร์เรย์รถยนต์</h3>
+            <pre><code id="code4">
+cars = ["Ford", "Volvo", "BMW"]
+for x in cars:
+  print(x)             
+            </code></pre>
+            <button class="copy-btn" onclick="copyCode('code4')">Copy Code</button>
+            <h3>ผลลัพธ์</h3>
+            <pre><code>                   
+Ford
+Volvo
+BMW
+            </code></pre>
+            </section>
+
+            <section class="tutorial">
+            <h2>การเพิ่มข้อมูลลงไปในชุดข้อมูลอาเรย์(array)</h2>
+            <p>เราสามารถใช้ฟังก์ชัน append() ในการเพิ่มข้อมูลใหม่ลงไปในชุดข้อมูลอาเรย์ ซึ่งจะเพิ่มเข้าไปหลังข้อมูลลำดับสุดท้ายที่มีอยู่ในอาเรย์</p>
+            <h3>ตัวอย่าง</h3>
+            <pre><code id="code5">
+cars = ["Ford", "Volvo", "BMW"]
+cars.append("Honda")
+print(cars)
+            </code></pre>
+            <button class="copy-btn" onclick="copyCode('code5')">Copy Code</button>
+            <h3>ผลลัพธ์</h3>
+            <pre><code>              
+['Toyota', 'Volvo', 'BMW', 'Honda']
+            </code></pre>
+            </section>
+
+            <section class="intro1">
+            <h2>การลบข้อมูลออกจากชุดข้อมูลอาเรย์(array)</h2>
+            <ul2>
+            เราสามารถลบข้อมูลออกจากชุดข้อมูลอาเรย์โดยใช้คีย์เวิร์ด del หรืออาจจะลบข้อมูลโดยใช้ฟังก์ชัน remove() และ pop() ในการลบข้อมูลออก 
+            <li> การลบข้อมูลออกจากชุดข้อมูลอาเรย์(array) โดยใช้คีย์เวิร์ด del () </li>
+            <li> การลบข้อมูลออกจากชุดข้อมูลอาเรย์(array) โดยใช้ฟังก์ชัน remove()</li></ul2>
+              <h3>ตัวอย่าง remove()</h3>
+              <pre><code id="code6">
+cars = ["Ford", "Volvo", "BMW"]
+cars.remove("Volvo")
+print(cars)
+              </code></pre>
+              <button class="copy-btn" onclick="copyCode('code6')">Copy Code</button>
+              <h3>ผลลัพธ์</h3>
+              <pre><code>
+['Ford', 'BMW']
+              </code></pre>
+              <h3>ตัวอย่าง pop()</h3>
+              <pre><code id="code7">
+cars = ["Ford", "Volvo", "BMW"]
+cars.pop(1)
+print(cars)
+              </code></pre>
+              <button class="copy-btn" onclick="copyCode('code7')">Copy Code</button>
+              <h3>ผลลัพธ์</h3>
+              <pre><code>
+['Ford', 'BMW']
+              </code></pre>
+              </section>
+
+              <section id="numpy-section">
+                <h2>การใช้ NumPy Array ใน Python</h2>
+                <p>NumPy (Numerical Python) เป็นไลบรารีที่สำคัญสำหรับการทำงานกับข้อมูลเชิงตัวเลขใน Python 
+                  โดย NumPy Array เป็นโครงสร้างข้อมูลหลักที่ช่วยให้การคำนวณทางคณิตศาสตร์เป็นไปอย่างมีประสิทธิภาพ 
+                  และสามารถทำงานกับข้อมูลขนาดใหญ่ได้ดี</p>
+                  <p><b>ก่อนที่จะใช้ NumPy จำเป็นต้องติดตั้งไลบรารีนี้ก่อน หากยังไม่ได้ติดตั้ง สามารถติดตั้งได้โดยใช้คำสั่ง</b></p>
+                  <pre><code id="code8">
+pip install numpy
+                  </code></pre>
+                    <button class="copy-btn" onclick="copyCode('code8')">Copy Code</button>
+                </section>
+
+                <section class="numpy">
+                  <h2>การสร้าง NumPy Array</h2>
+                  <p>ใน NumPy, Array ถูกใช้แทนการใช้ List แบบดั้งเดิมใน Python โดยที่ NumPy Array 
+                    จะมีประสิทธิภาพที่ดีกว่าเมื่อทำการคำนวณกับข้อมูลจำนวนมาก</p>
+                    <pre><code id="code9">
+import numpy as np
+
+<i># สร้าง NumPy Array จาก List</i>
+arr = np.array([1, 2, 3, 4, 5])
+print(arr)                  
+                    </code></pre>
+                      <button class="copy-btn" onclick="copyCode('code9')">Copy Code</button>
+                      <h3>ผลลัพธ์</h3>
+                      <pre><code>
+[1 2 3 4 5]
+                      </code></pre>  
+                  </section>
+
+              <section class="numpy">
+                <h2>การสร้าง Array ที่มีค่าคงที่ (ตัวอย่าง 0, 1)</h2>
+                <p>สามารถใช้ฟังก์ชันต่างๆ ของ NumPy เพื่อสร้าง Array ที่มีค่าคงที่ เช่น การสร้าง Array ที่มีค่าเป็น 0 หรือ 1</p>
+                  <h3>ตัวอย่าง</h3>
+                  <pre><code id="code10">
+import numpy as np <i> # นำเข้าไลบรารี num </i>
+<i># สร้าง Array ที่มีค่าทั้งหมดเป็น 0 </i>
+arr_zero = np.zeros(5)  <i># สร้าง Array ขนาด 5 ที่มีค่าเป็น 0 </i>
+print(arr_zero)
+                    
+<i># สร้าง Array ที่มีค่าทั้งหมดเป็น 1</i>
+arr_ones = np.ones(5)  <i># สร้าง Array ขนาด 5 ที่มีค่าเป็น 1</i>
+print(arr_ones)
+                  </code></pre>
+                  <button class="copy-btn" onclick="copyCode('code10')">Copy Code</button>
+                  <h3>ผลลัพธ์</h3>
+              <pre><code>
+[0. 0. 0. 0. 0.]
+[1. 1. 1. 1. 1.]
+              </code></pre>
+              </section>
+
+              <section class="numpy">
+                <h2>การสร้าง Array ที่มีการกระจายค่าตัวเลข (Range)</h2>
+                <p>สามารถใช้ฟังก์ชัน np.arange() เพื่อสร้าง Array ที่มีค่าจากช่วงตัวเลขที่กำหนด</p>
+                  <h3>ตัวอย่าง</h3>
+                  <pre><code id="code11">
+import numpy as np <i> # นำเข้าไลบรารี numpy </i>
+arr_range = np.arange(1, 11, 2)                  
+<i># สร้าง Array จาก 1 ถึง 10 โดยเพิ่มทีละ 2 </i>
+print(arr_range)
+                  </code></pre>
+                  <button class="copy-btn" onclick="copyCode('code11')">Copy Code</button>
+                  <h3>ผลลัพธ์</h3>
+              <pre><code>
+[1 3 5 7 9]
+              </code></pre>
+              </section>
+
+              <section class="numpy">
+                <h2>การเข้าถึงและแก้ไขข้อมูลใน NumPy Array</h2>
+                <p>การเข้าถึงและแก้ไขข้อมูลใน NumPy Array ทำได้เหมือนกับการเข้าถึงข้อมูลใน List ปกติ โดยใช้ Index</p>
+                  <h3>ตัวอย่าง</h3>
+                  <pre><code id="code12">
+import numpy as np <i> # นำเข้าไลบรารี numpy</i>
+arr = np.array([10, 20, 30, 40, 50])
+
+<i># การเข้าถึงข้อมูล</i>
+print(arr[0])  # เข้าถึงค่าที่ Index 0
+                    
+<i># การแก้ไขข้อมูล</i>  
+arr[0] = 100
+print(arr)                  
+                  </code></pre>
+                  <button class="copy-btn" onclick="copyCode('code12')">Copy Code</button>
+                  <h3>ผลลัพธ์</h3>
+              <pre><code>
+10
+[100  20  30  40  50]
+              </code></pre>
+              </section>
+
+              <section class="numpy">
+                <h2>การดำเนินการทางคณิตศาสตร์กับ NumPy Array</h2>
+                <p>หนึ่งในข้อดีของ NumPy Array คือความสามารถในการทำคำนวณทางคณิตศาสตร์ได้โดยตรงในตัวเอง 
+                  เช่น การบวก การลบ การคูณ หรือการหาร โดยไม่ต้องใช้ loop</p>
+                  <h3>ตัวอย่าง</h3>
+                  <pre><code id="code13">
+import numpy as np <i> # นำเข้าไลบรารี numpy</i>
+arr1 = np.array([1, 2, 3])
+arr2 = np.array([4, 5, 6])
+                   
+<i># การบวกสอง Array</i>
+arr_sum = arr1 + arr2
+print(arr_sum) <i> # ผลลัพธ์ [5 7 9]</i>
+                    
+<i># การคูณแต่ละค่าด้วยจำนวน</i>  
+arr_mul = arr1 * 2
+print(arr_mul) <i> # ผลลัพธ์ [2 4 6]  </i>                                 
+                  </code></pre>
+                  <button class="copy-btn" onclick="copyCode('code13')">Copy Code</button>
+                  <h3>ผลลัพธ์</h3>
+              <pre><code>
+[5 7 9]
+[2 4 6]
+              </code></pre>
+              </section>
+
+              <section class="numpy">
+                <h2>การคำนวณทางสถิติด้วย NumPy Array</h2>
+                <p>NumPy ช่วยให้คุณสามารถทำการคำนวณทางสถิติได้ง่ายๆ เช่น การหาค่าเฉลี่ย, ค่ามัธยฐาน, ค่ามากที่สุด หรือค่าน้อยที่สุด</p>
+                  <h3>ตัวอย่าง</h3>
+                  <pre><code id="code14">
+import numpy as np <i> # นำเข้าไลบรารี numpy</i>
+arr = np.array([10, 20, 30, 40, 50])
+
+<i># คำนวณค่าเฉลี่ย</i>
+mean = np.mean(arr)
+print("ค่าเฉลี่ย:", mean)
+                    
+<i># คำนวณค่าสูงสุด</i>
+max_value = np.max(arr)
+print("ค่าสูงสุด:", max_value)
+                    
+<i># คำนวณค่าต่ำสุด</i>
+min_value = np.min(arr)
+print("ค่าต่ำสุด:", min_value)                                                    
+                  </code></pre>
+                  <button class="copy-btn" onclick="copyCode('code14')">Copy Code</button>
+                  <h3>ผลลัพธ์</h3>
+              <pre><code>
+ค่าเฉลี่ย: 30.0
+ค่าสูงสุด: 50
+ค่าต่ำสุด: 10
+              </code></pre>
+              </section>
+
+              <section class="numpy">
+                <h2>การใช้ฟังก์ชันเพิ่มเติมใน NumPy</h2>
+                <p>NumPy ยังมีฟังก์ชันอื่นๆ ที่ช่วยในการทำงานกับข้อมูล เช่น <b> การสุ่มข้อมูล</b> (np.random), 
+                 <b> การคูณเมทริกซ์</b> (np.dot),<b> การหาอินเวอร์สของเมทริกซ์</b> (np.linalg.inv) และอื่นๆ</p>
+              </section>
+
+              <section class="video-section">
+                <h2>ดูวิดีโอการใช้งาน Arrays ใน Python เพิ่มเติม</h2>
+                <div class="video-container">
+                  <iframe src="https://www.youtube.com/embed/R5F7kVvlSik?si=jOS0hFXY8jYmOYBK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+              </section>
+
+              <section class="summary">
+                <h2>สรุปเรื่อง Python Arrays</h2>
+                <p>ในภาษา Python, Array ไม่ใช่ประเภทข้อมูลพื้นฐานที่รองรับโดยตรง (เหมือนในภาษาอื่นๆ เช่น C หรือ Java) 
+                  แต่ Python ใช้ List แทนการใช้งาน Array เนื่องจาก List ใน Python สามารถเก็บข้อมูลประเภทต่างๆ 
+                  ได้ภายในโครงสร้างเดียวกัน เช่น ตัวเลข, ข้อความ หรือชนิดข้อมูลอื่นๆ โดยไม่จำเป็นต้องกำหนดขนาดหรือประเภทของข้อมูลล่วงหน้า
+                  ถ้าต้องการประสิทธิภาพสูงและการทำงานที่รวดเร็วกับข้อมูลจำนวนมาก สามารถใช้ NumPy Array ได้</p>
+              
+              </main>
+ 
+
+  <script>
+    function copyCode(id) {
+      var codeBlock = document.getElementById(id);  // รับ ID ของโค้ดที่ถูกกด
+      var range = document.createRange();
+      range.selectNode(codeBlock);
+      window.getSelection().removeAllRanges();  // ลบการเลือกทั้งหมดก่อนหน้า
+      window.getSelection().addRange(range);  // เลือกเนื้อหาใน code block
+      try {
+        document.execCommand('copy');  // คัดลอกไปยังคลิปบอร์ด
+        alert("โค้ดถูกคัดลอกไปยังคลิปบอร์ดแล้ว!");
+      } catch (err) {
+        alert("ไม่สามารถคัดลอกโค้ดได้");
+      }
+      window.getSelection().removeAllRanges();  // ล้างการเลือก
+    }
+
+    function showExercise() {
+      var exerciseSection = document.getElementById('exercise-section');
+      // เปลี่ยนแสดงส่วนแบบฝึกหัด
+      if (exerciseSection.style.display === "none") {
+        exerciseSection.style.display = "block";
+      } else {
+        exerciseSection.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
