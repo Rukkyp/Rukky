@@ -171,7 +171,7 @@ pre {
   }
 
   ul.left-nav, ul.right-nav {
-    display: block;  /* เปลี่ยนจาก flex เป็น block เพื่อให้เมนูแสดงผลในแนวตั้ง */
+    display: flex;  /* เปลี่ยนจาก flex เป็น block เพื่อให้เมนูแสดงผลในแนวตั้ง */
     width: 100%;  /* ให้เมนูขยายเต็มความกว้าง */
     margin: 0;  /* ลบ margin */
   }
