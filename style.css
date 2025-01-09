@@ -1,0 +1,157 @@
+/* Resetting some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+  padding-top: 50px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #333;
+  color: white;
+  text-align: left;
+  padding: 10px 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar .logo img {
+  width: 150px; /* ปรับขนาดของโลโก้ */
+  height: 35px;
+  margin-right: 50px; /* เว้นระยะห่างจากเมนู */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.left-nav, ul.right-nav {
+  display: flex;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ul li {
+  margin: 0 10px;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;
+}
+
+ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+}
+
+ul.right-nav li a {
+  background-color: #1d4e98;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+ul.right-nav li a:hover {
+  background-color: #101320; 
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 50px;
+}
+
+h2 {
+  color: #555;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul li {
+  margin-bottom: 5px; 
+  margin-left: 30px;
+}
+
+p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Adding spacing and shadow for content blocks */
+section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+section h2 {
+  color: #333;
+}
+
+pre, code {
+  background-color: #2d2d2d;
+  color: white;
+  padding: 7px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 15px;
+}
+
+pre {
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.copy-btn {
+  background-color: #3a3e3a15; 
+  color: rgb(20, 18, 18);
+  border: none;
+  padding: 5px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 3px;
+}
+
+.copy-btn:hover {
+  background-color: #9ca39b; 
+}
+
+/* For mobile and smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;  /* ซ่อนแถบเมนูเมื่อหน้าจอมีขนาดเล็ก */
+  }
+}
